@@ -1,0 +1,35 @@
+#
+# Beads on the surface of a sphere
+#
+
+tolerance 2
+filetype xyz
+output CELL.xyz
+movebadrandom
+
+structure A.xyz 
+  number 90
+  atoms 1
+    inside sphere 0. 0. 0.  9.1 
+  end atoms
+  atoms 1
+    outside sphere 0. 0. 0. 9.0
+  end atoms
+end structure 
+
+structure B.xyz 
+  number 90
+  atoms 1
+    inside sphere 0. 0. 0.  9.1 
+  end atoms
+  atoms 1
+    outside sphere 0. 0. 0. 9.0
+  end atoms
+end structure 
+
+structure N.xyz
+  number 1
+  center
+  fixed 0. 0. 0. 0. 0. 0.
+end structure
+

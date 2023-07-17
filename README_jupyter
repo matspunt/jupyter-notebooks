@@ -1,0 +1,47 @@
+I) Create conda env: conda create --name XXX
+2) Activate: conda activate XXX
+3) conda config --add channels conda-forge
+4) Install Jupyter packages:
+
+conda install -c conda-forge jupyterlab
+conda install -c conda-forge nb_conda_kernels
+conda install -c conda-forge jupyter_contrib_nbextensions (not required, useful extensions)
+
+conda install pip scipy #whatever packages you want
+
+4) To deactivate conda env: conda deactivate (twice, to leave 'base' env too)
+
+Make sure to activate conda env then run this in root folder of interest:
+Location where jupyter entity is run determines which files are accessible 
+
+nohup jupyter-notebook --no-browser --port=8889 >& jupyter.log &
+
+Jupyter then runs normally under PID and can easily be killed if misbehaving
+
+To access workstation Jupyter server, tunnel in the following way: 
+
+ssh -L 8888:localhost:8880 matspunt@pangolin.it.helsinki.fi -t ssh -L 8880:localhost:8889 matspunt@dx9-5282-12510.physics.helsinki.fi
+
+-Where 8888 = work laptop, 8880 = pangolin port and 8889 = the port of Jupyter running on work desktop
+(#or whatever ports you want, doesn't really matter)
+
+Then fill in the token from jupyter.log if it asks for it (only need to do this if kernel is shutdown for some reason
+like a reboot)
+
+To make this process easier, create alias in ~/.bashrc of work laptop like this:
+
+alias work-PC-jupyter='ssh -L 8888:localhost:8880 matspunt@pangolin.it.helsinki.fi -t ssh -L 8880:localhost:8889 matspunt@dx9-5282-12510.physics.helsinki.fi'
+alias work-PC='ssh -J matspunt@pangolin.it.helsinki.fi matspunt@dx9-5282-12510.physics.helsinki.fi'
+
+---------
+Extra conda stuff:
+
+Additionally, you can clone existing environment using 'conda create --clone <venv> --name <new_venv>'
+
+to create env with specific python version 'conda create -n "myenv" python=<x.x.x> ipython'
+
+Can also use this for package versions e.g. 'conda install matplotlib=1.5.2' if you want
+
+To list conda venvs: 
+
+conda info --envs

@@ -1,0 +1,24 @@
+[ defaults ]
+    1           2          yes          1.0     1.0
+
+[ atomtypes ]
+   M1        72        0.0      A      0.0       0.0
+   M2        72        0.0      A      0.0       0.0
+   C         72        0.0      A      0.0       0.0
+
+[ nonbond_params ]
+   bead1     bead1     1   bead1_bead1_sigma      bead1_bead1_eps     
+   bead1     bead2     1   bead1_bead2_sigma      bead1_bead2_eps     
+   bead1     beadC     1   bead1_beadC_sigma      bead1_beadC_eps     
+   bead2     bead1     1   bead2_bead1_sigma      bead2_bead1_eps     
+   bead2     bead2     1   bead2_bead2_sigma      bead2_bead2_eps     
+   bead2     beadC     1   bead2_beadC_sigma      bead2_beadC_eps     
+   beadC     bead1     1   beadC_bead1_sigma      beadC_bead1_eps     
+   beadC     bead2     1   beadC_bead2_sigma      beadC_bead2_eps     
+   beadC     beadC     1   beadC_beadC_sigma      beadC_beadC_eps     
+
+[ bondtypes ]
+   nameC   bead1     1     r0_C_bead1      fk_C_bead1  
+   nameC   bead2     1     r0_C_bead2      fk_C_bead2  
+   nameC   beadC     1     r0_C_beadC      fk_C_beadC  
+

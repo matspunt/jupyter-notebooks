@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../coding/CELL_MODEL"
+		}
+	],
+	"settings": {
+		"[python]": {
+			"editor.defaultFormatter": "ms-python.black-formatter"
+		},
+		"python.formatting.provider": "none"
+	}
+}
